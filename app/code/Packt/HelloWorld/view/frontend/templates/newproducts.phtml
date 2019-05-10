@@ -1,0 +1,6 @@
+<h2>New Products</h2>
+<ul>
+    <?php foreach ($block->getProducts() as $product): ?>
+        <li><?php echo $product->getImage() . ' : ' . $product->getUrlInStore()?></li>
+    <?php endforeach; ?>
+</ul>

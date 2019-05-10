@@ -1,0 +1,5 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1557481493;s:6:"expire";i:1557567893;s:4:"tags";s:44:"8f2_BACKEND_MAINMENU,8f2_BLOCK_HTML,8f2_MAGE";}
+
+<nav data-mage-init='{"globalNavigation": {}}' class="admin__menu">
+    <ul id="nav" role="menubar" ><li  data-ui-id="menu-magento-backend-dashboard"  class="item-dashboard    level-0" id="menu-magento-backend-dashboard" aria-haspopup="true" role="menu-item"><a href="http://127.0.0.1/Magento/m2.3.1_first/admin/admin/dashboard/"   class=""><span>Dashboard</span></a></li></ul></nav>
+

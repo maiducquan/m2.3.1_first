@@ -1,0 +1,12 @@
+<h2>Show Database</h2>
+<p>Movie Advanced</p>
+<table>
+<!--    --><?php //$block->getMovieData()?>
+    <?php foreach ($block->getMovieData()->getData() as $product): ?>
+        <tr>
+            <?php foreach ($product as $data) : ?>
+                <td> <?php echo $data ?></td>
+            <?php endforeach; ?>
+        </tr>
+    <?php endforeach; ?>
+</table>

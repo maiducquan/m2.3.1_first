@@ -1,0 +1,11 @@
+<h2>Show Database</h2>
+<ul> Movie
+    <?php foreach ($block->getMovieData() as $product): ?>
+        <li><?php foreach ($product->getData() as $data) : echo $data .' '; endforeach; ?></li>
+    <?php endforeach; ?>
+</ul>
+<ul> Actor
+    <?php foreach ($block->getActorData() as $product): ?>
+        <li><?php foreach ($product->getData() as $data) : echo $data .' '; endforeach; ?></li>
+    <?php endforeach; ?>
+</ul>

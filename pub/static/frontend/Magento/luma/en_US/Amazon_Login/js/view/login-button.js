@@ -1,0 +1,1 @@
+/var/www/html/Magento/m2.3.1_first/vendor/amzn/login-with-amazon-module/view/frontend/web/js/view/login-button.js
