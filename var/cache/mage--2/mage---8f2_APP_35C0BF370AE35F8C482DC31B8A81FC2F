@@ -1,2 +1,0 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1557481611;s:6:"expire";i:1557488811;s:4:"tags";s:49:"8f2_STORE,8f2_CONFIG,8f2_COLLECTION_DATA,8f2_MAGE";}
-[{"group_id":"1","website_id":"1","name":"Main Website Store","root_category_id":"2","default_store_id":"1","code":"main_website_store"},{"group_id":"2","website_id":"1","name":"mdq","root_category_id":"2","default_store_id":"0","code":"mdq"}]
