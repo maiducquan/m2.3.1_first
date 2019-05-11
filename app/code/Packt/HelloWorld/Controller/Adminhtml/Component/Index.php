@@ -1,12 +1,11 @@
 <?php
 
-namespace Packt\HelloWorld\Controller\Adminhtml\Subscription;
+namespace Packt\HelloWorld\Controller\Adminhtml\Component;
 
 use Magento\Catalog\Controller\Adminhtml\Product;
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
-
+use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Catalog\Controller\Adminhtml\Product implements HttpGetActionInterface
 {
@@ -28,15 +27,15 @@ class Index extends \Magento\Catalog\Controller\Adminhtml\Product implements Htt
          * @var \Magento\Backend\Model\View\Result\Page $resultPage
          */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Packt_HelloWorld::subscription')
-            ->addBreadcrumb(__('HelloWorld'), __('HelloWorld'))
-            ->addBreadcrumb(__('Manage Subscriptions'), __('Manage Subscriptions'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Subscriptions a'));
+        $resultPage->setActiveMenu('Packt_HelloWorld::component')
+                    ->addBreadcrumb(__('HelloWorld'), __('HelloWorld'))
+                    ->addBreadcrumb(__('Components'), __('Components'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Components'));
         return $resultPage;
     }
 
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Packt_HelloWorld::subscription');
+        return $this->_authorization->isAllowed('Packt_HelloWorld::helloworld');
     }
 }
