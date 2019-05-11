@@ -97,8 +97,8 @@ class CreateHandlerTest extends \PHPUnit\Framework\TestCase
     public function illegalFilenameDataProvider()
     {
         return [
-            ['../../../../../.htaccess'],
-            ['/../../../.././.htaccess.tmp'],
+            ['../../../../../..htaccess'],
+            ['/../../../.././..htaccess.tmp'],
         ];
     }
 

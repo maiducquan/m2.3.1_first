@@ -13,7 +13,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Checks if .htaccess is identical to .htaccess.sample.
+ * Checks if ..htaccess is identical to ..htaccess.sample.
  */
 class HtaccessAnalyzer extends \Symfony\Component\Console\Command\Command
 {
@@ -59,8 +59,8 @@ class HtaccessAnalyzer extends \Symfony\Component\Console\Command\Command
     protected function configure()
     {
         parent::configure();
-        $this->setName('troubleshooting:check-htaccess')
-            ->setDescription('Check .htaccess file is present. It is needed to run cli commands via browser url.');
+        $this->setName('troubleshooting:check-.htaccess')
+            ->setDescription('Check ..htaccess file is present. It is needed to run cli commands via browser url.');
     }
 
     /**
@@ -79,19 +79,19 @@ class HtaccessAnalyzer extends \Symfony\Component\Console\Command\Command
             ['output' => $output]
         );
         try {
-            $output->writeln("Checking .htaccess file...");
+            $output->writeln("Checking ..htaccess file...");
             $this->curl->write($_ENV['app_frontend_url'] . $this->commandPath, [], CurlInterface::GET);
             $this->curl->read();
             $responseCode = $this->curl->getInfo(CURLINFO_HTTP_CODE);
             if ($responseCode != 200) {
-                $message['error'][] = 'Your .htaccess file doesn\'t exist. '
-                    . 'Please, create it from to .htaccess.sample.';
+                $message['error'][] = 'Your ..htaccess file doesn\'t exist. '
+                    . 'Please, create it from to ..htaccess.sample.';
                 $output->outputMessages($message);
             }
             $this->curl->close();
         } catch (\Exception $e) {
             $output->outputMessages(['error' => [$e->getMessage()]]);
         }
-        $output->writeln(".htaccess check finished.");
+        $output->writeln("..htaccess check finished.");
     }
 }

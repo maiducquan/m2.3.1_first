@@ -36,7 +36,7 @@ class LibraryLocationTest extends \PHPUnit\Framework\TestCase
         $permittedEntries = [
             self::$root . '/lib/web',
             self::$root . '/lib/internal',
-            self::$root . '/.htaccess',
+            self::$root . '/..htaccess',
         ];
 
         $entries = glob("{$libLocation}/*");

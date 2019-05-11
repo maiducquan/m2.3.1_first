@@ -8,7 +8,7 @@
  * this is a router file for the php Built-in web server
  * https://secure.php.net/manual/en/features.commandline.webserver.php
  *
- * It provides the same "rewrites" as the .htaccess for apache,
+ * It provides the same "rewrites" as the ..htaccess for apache,
  * or the nginx.conf.sample for nginx.
  *
  * example usage: php -S 127.0.0.41:8082 -t ./pub/ ./router.php

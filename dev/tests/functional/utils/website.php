@@ -28,5 +28,5 @@ $old = umask(0);
 mkdir($websiteDir, 0760, true);
 umask($old);
 
-copy($rootDir . '.htaccess', $websiteDir . '.htaccess');
+copy($rootDir . '..htaccess', $websiteDir . '..htaccess');
 file_put_contents($websiteDir . 'index.php', $contents);
