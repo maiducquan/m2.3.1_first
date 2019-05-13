@@ -1,0 +1,55 @@
+* Create a module
+	- etc/module.xml
+	- registration.php
+* Create flat table
+	- Setup/InstallSchema.php
+
+	- primary key, foreign key -> 'nullable' => false
+	- add foreign key check type of database (ex: 'unsigned' => true)
+* Create url 
+	- etc/frontend/routes.xml
+* Create layout
+	- Controller/Index.php
+	- etc/frontend/routes.xml
+	- view/frontend/layout/movie_index_index.xml
+* Create a resource model for a table
+	- Model/ResourceModel/<name>/Collection.php
+	- Model/ResourceModel/<name>.php
+	- Model/<name>.php
+* Show the data in a table 
+	- Block/<name>.php
+	--> auto generate the CollectionFatory class
+	- view/frontend/layout/movie_index_index.xml
+	- view/templates/showdatabase.phtml
+
+* Join table 
+$collectionMovie->getSelect()->join(
+            [
+                'movie_actor' => $collectionMovieActor->getTable('magenest_movie_actor_advanced')
+            ],
+            'main_table.movie_id = movie_actor.movie_id',
+            ['movie_actor.actor_id']
+        )->group('main_table.movie_id');
+
+ 	- have to have group() function to remove 1 duplicate column
+
+* Create new menu: 
+	- etc/adminhtml/routes.xml
+	- etc/acl.xml
+        - etc/adminhtml/menu.xml
+	- etc/adminhtml/routes.xml
+
+* Create new config tab:
+	- etc/adminhtml/system.xml
+	- etc/acl.xml
+	- Model/Config/Source/Movie.php
+	- etc/config.xml
+	
+* Add a grid with the data using ui component
+	- etc/di.xml
+	- view/adminhtml/ui_component/movie_actor_listing.xml
+	- view/adminhtml/layout/movie_acotr_index.xml
+	- Controller/Adminhtml/Actor/Index.php
+	- Model/ResoureceModel/Actor.php
+	- Model/ResoureceModel/Actor/Collection.php
+

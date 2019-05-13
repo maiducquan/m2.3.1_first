@@ -8,19 +8,23 @@
 
 namespace Magenest\Movie\Controller\Index;
 
-class Index extends \Magento\Framework\App\Action\Action
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
+use Magento\Framework\View\Result\PageFactory;
+
+class Index extends Action
 {
     /**
      * Index action
      *
      * @return $this
      */
-    /** @var \Magento\Framework\View\Result\PageFactory */
+    /** @var PageFactory */
     protected $resultPageFactory;
 
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
+        Context $context,
+        PageFactory $resultPageFactory
     )
     {
         $this->resultPageFactory = $resultPageFactory;

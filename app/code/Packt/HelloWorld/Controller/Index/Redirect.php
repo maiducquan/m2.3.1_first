@@ -13,6 +13,6 @@ class Redirect extends \Magento\Framework\App\Action\Action
         // change both frontend and url
         // $this->_redirect('about-us');
         // still change the frontend, the url does not change
-        $this->_forward('index');
+        $this->_forward('test');
     }
 }

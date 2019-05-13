@@ -1,0 +1,116 @@
+	-  Stores | Configuration |Advanced | Admin | Security | Add Secret Key to URLs -> No
+
+* Registering a backend controller
+	- Controller/Adminhtml/Index/Index.php
+	- etc/adminhtml/routes.xml
+
+	- <path_to_backend>/<route_name>/<controller_name>/<action_name>
+	http://127.0.0.1/Magento/m2.3.1_first/admin/helloworld/index
+
+* Extending the menu
+	- etc/adminhtml/menu.xml
+	- etc/adminhtml/routes.xml
+	- Controller/Adminhtml/Index/Index.php
+
+	- php bin/magento c:c block_html config
+	- An <add/> statement can have the following attr
+		+ id: the identifier of the menu item
+		+ title: the title of the menu item
+		+ module: the module that the menu item will refer to 
+		+ sortOrder: The sequence by which all the menu items will be ordered
+		+ parent: the parent menu item
+		+ action: if the item contains a link, this is the URL leading to the controller action
+		+ resource: the identifier of the ACL resource explained in the recipe Adding an ACL
+
+* Adding an ACL
+	- etc/acl.xml
+	- add funtion _isAllowed() in Controller/Adminhtml/Index/Index
+	--> is used to check if your controller is authorized for logged in user or not
+
+* Adding configuration parameters
+	- save configuration parameters for your module
+
+	- etc/adminhtml/system.xml 
+	--> add tab config
+	  etc/acl.xml (if want)
+	  etc/config.xml
+	--> show the config data
+
+	- each section, group, and field has the attributes showInDefault showInDefault, showInWebsite and showInStore. These scopes are used when you run multiple stores on the same Magento installation:
+		+ Global configuration (showInDefault)
+		+ Website configuration (showInWebsite)
+		+ Stoere view configuration (showInStore)
+
+	- store in core_config_data table
+	- path column is the combination of the section_id, group_id and field_id columns.
+
+* Creating a grid of a database talbe using component
+	- To create menu
+		+ etc/acl.xml
+		+ etc/adminhtml/menu.xml
+		+ Controller/Adminhtml/Subscription/Index.php
+			.)  _prepareCollection()
+			.)  _prepareColumns()
+			
+Tip: 
+	$this->addColumn(
+		'status',
+		[
+			'header' => __('Status'),
+			'index' => 'status',
+			'frame_callback' => [$this, 'decorateStatus']	
+		]
+	);
+	- To create a table in menu
+		+ Block/Adminhtml/Subscription.php
+		+ Block/Adminhtml/Subscription/Grid.php
+		+ view/adminhtml/layout/helloworld_subscription_index.xml
+
+	-  adminhtml.block.helloworld.subscription.container
+	class \Magento\Backend\Block\Widget\Grid\Container
+	--> to show the heading and buttons like the Add New button
+
+	- adminhtml.block.helloworld.subscription.grid
+	class \Magento\Backend\Block\Widget\Grid\Extended
+	--> add the filters to the grid
+
+	- addColumn() functions
+		+ header: the name of the column
+		+ index: the column in the database
+		+ frame_callback: render the value of a cell
+		+ type: defines the filter widget like number, datatime, options
+		+ options: defines a source model when the type is options
+
+* Working with backend components
+	- view/adminhtml/templates/component/toolbar/buttons.phtml
+	- view/adminhtml/layout/helloworld_component_index.xml
+	- view/adminhtml/templates/component/index.phtml
+
+	- The standard Magento backend is divided into 12 columns.
+
+* Adding customer attributes
+	- Add a new field loyaltynumber to the customer
+	
+	- Step:
+ 		+ etc/module.xml
+		+ registration.php
+		+ Setup/IntallData.php
+		+ view/base/ui_component/customer_form.xml
+
+	- The configuration of a customer attribute is saved in 2 talbes:
+		+ eva_attribute: the generic data of attr, such as the entity type and attr code
+		+ customer_eav_attribute: the specific data for a customer attribute, such as the position and validation rules
+
+* Working with source code
+	- Create new soure model
+		+ Model/Config/Source/Relation.php
+		+ add tag <source_model> Packt\HelloWorld\Model\Config\Source\Relation</source_mod
+el> in system.xml
+
+	- We can also use source models in the following cases:
+		+ A product attr in the backend
+		+ A customer attr in the backend
+		+ Dropdown filter in backend grids
+		+ Magento forms in the frontend and backend ( ex: country dropdown at checkout,...)
+
+

@@ -66,3 +66,5 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 .DS_Store
+/app/code/Movie.zip
+/app/code/Movie
