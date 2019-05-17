@@ -1,0 +1,423 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">popup_form.popup_form_edit_data_source</item>
+            <item name="deps" xsi:type="string">popup_form.popup_form_edit_data_source</item>
+        </item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">popup_form</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Popup</item>
+        <item name="reverseMetadataMerge" xsi:type="boolean">true</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save_and_continue" class="Magenest\Popup\Block\Adminhtml\Popup\Edit\Buttons\SaveAndContinueButton"/>
+            <button name="save" class="Magenest\Popup\Block\Adminhtml\Popup\Edit\Buttons\SaveButton"/>
+            <button name="delete" class="Magenest\Popup\Block\Adminhtml\Popup\Edit\Buttons\DeleteButton"/>
+            <button name="back" class="Magenest\Popup\Block\Adminhtml\Popup\Edit\Buttons\BackButton"/>
+        </buttons>
+        <layout>
+            <navContainerName>left</navContainerName>
+            <type>tabs</type>
+        </layout>
+        <deps>
+            <dep>popup_form.popup_form_edit_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="popup_form_edit_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magenest\Popup\Model\Popup\DataProvider</argument>
+            <argument name="name" xsi:type="string">popup_form_edit_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">popup_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="magenest_popup/popup/save"/>
+        </settings>
+    </dataSource>
+    <htmlContent name="customer_edit_tab_view_content">
+        <block class="Magento\Customer\Block\Adminhtml\Edit\Tab\View" name="customer_edit_tab_view" template="Magento_Customer::tab/view.phtml">
+            <arguments>
+                <argument name="sort_order" xsi:type="number">10</argument>
+                <argument name="tab_label" xsi:type="string" translate="true">Customer View</argument>
+            </arguments>
+            <block class="Magento\Customer\Block\Adminhtml\Edit\Tab\View\PersonalInfo" name="personal_info" template="Magento_Customer::tab/view/personal_info.phtml"/>
+        </block>
+    </htmlContent>
+    <fieldset name="general">
+        <settings>
+            <label translate="true">General Setting</label>
+        </settings>
+        <field name="popup_id" formElement="hidden" sortOrder="30" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+        </field>
+        <field name="popup_name" sortOrder="40" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Popup Name</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="popup_status" sortOrder="50" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magenest\Popup\Model\Source\Popup\PopupStatus</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Popup Status</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="popup_type" sortOrder="60" component="Magenest_Popup/js/form/element/popup-type" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magenest\Popup\Model\Source\Popup\PopupType</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Popup Type</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="start_date" sortOrder="70" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Start Date</label>
+                <visible>true</visible>
+            </settings>
+        </field>
+        <field name="end_date" sortOrder="80" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">End Date</label>
+                <visible>true</visible>
+            </settings>
+        </field>
+        <field name="priority" sortOrder="90" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Priority</label>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="setting">
+        <settings>
+            <label translate="true">Popup Configuration</label>
+        </settings>
+        <field name="popup_id" formElement="hidden" sortOrder="30" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+        </field>
+        <field name="popup_template_id" sortOrder="40" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magenest\Popup\Model\Source\Popup\PopupTemplate</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Popup Template</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="popup_trigger" sortOrder="50" component="Magenest_Popup/js/form/element/popup-trigger" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magenest\Popup\Model\Source\Popup\PopupTrigger</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Popup Trigger</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="number_x" sortOrder="60" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Number X</label>
+                <validation>
+                    <rule name="validate-greater-than-zero" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="popup_position" sortOrder="70" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magenest\Popup\Model\Source\Popup\PopupPosition</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Popup Position</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="popup_animation" sortOrder="80" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magenest\Popup\Model\Source\Popup\PopupAnimation</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Popup Animation</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="visible_stores" sortOrder="90" formElement="multiselect">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Stores</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <tooltip>
+                    <link>http://docs.magento.com/m2/ce/user_guide/configuration/scope.html</link>
+                    <description>What is this?</description>
+                </tooltip>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+        <field name="enable_cookie_lifetime" sortOrder="100" component="Magenest_Popup/js/form/element/cookie-lifetime" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Enable Cookie Lifetime</label>
+                <visible>true</visible>
+                <dataScope>enable_cookie_lifetime</dataScope>
+                <notice translate="true">
+                    Duration (in seconds) before popup appears again for the same customer
+                </notice>
+            </settings>
+        </field>
+        <field name="cookie_lifetime" sortOrder="110" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Cookie Lifetime</label>
+                <validation>
+                    <rule name="validate-greater-than-zero" xsi:type="boolean">true</rule>
+                </validation>
+                <notice translate="true">
+                    Cookie lifetime (in seconds)
+                </notice>
+            </settings>
+        </field>
+        <field name="coupon_code" sortOrder="120" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-number" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Coupon Code</label>
+            </settings>
+        </field>
+        <field name="thankyou_message" sortOrder="130" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Thank You Message</label>
+                <notice translate="true">
+                    Only apply for Popup Type: Contact Form and Subscribe Form
+                </notice>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="html">
+        <settings>
+            <label translate="true">HTML Content</label>
+        </settings>
+        <field name="popup_id" formElement="hidden" sortOrder="20" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+        </field>
+        <field name="html_content" template="ui/form/field" sortOrder="30" formElement="wysiwyg">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <item name="height" xsi:type="string">300px</item>
+                        <item name="add_variables" xsi:type="boolean">true</item>
+                        <item name="add_widgets" xsi:type="boolean">true</item>
+                        <item name="add_images" xsi:type="boolean">true</item>
+                        <item name="add_directives" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="source" xsi:type="string">template</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">HTML Content</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <wysiwyg class="Magenest\Popup\Ui\Component\Template\Form\Element\Wysiwyg">
+                    <settings>
+                        <rows>8</rows>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+        </field>
+        <field name="css_style" sortOrder="40" formElement="textarea">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">CSS Styles</label>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="report">
+        <settings>
+            <label translate="true">Report</label>
+        </settings>
+        <field name="popup_id" formElement="hidden" sortOrder="20" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                </item>
+            </argument>
+        </field>
+        <field name="click" formElement="input" sortOrder="30" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                    <item name="disabled" xsi:type="string">${ $.provider }:data.click</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Click(s)</label>
+            </settings>
+        </field>
+        <field name="view" formElement="input" sortOrder="40" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                    <item name="disabled" xsi:type="string">${ $.provider }:data.view</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">View(s)</label>
+            </settings>
+        </field>
+        <field name="ctr" formElement="input" sortOrder="50" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">popup</item>
+                    <item name="disabled" xsi:type="string">${ $.provider }:data.ctr</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">CTR (%)</label>
+            </settings>
+        </field>
+    </fieldset>
+</form>

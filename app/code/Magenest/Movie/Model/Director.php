@@ -7,7 +7,7 @@
  */
 namespace Magenest\Movie\Model;
 
-class Actor extends \Magento\Framework\Model\AbstractModel
+class Director extends \Magento\Framework\Model\AbstractModel
 {
     const STATUS_PENDING = 'pending';
     const STATUS_APPROVED = 'approved';
@@ -26,6 +26,6 @@ class Actor extends \Magento\Framework\Model\AbstractModel
 
     public function _construct()
     {
-        $this->_init('Magenest\Movie\Model\ResourceModel\Actor');
+        $this->_init('Magenest\Movie\Model\ResourceModel\Director');
     }
 }

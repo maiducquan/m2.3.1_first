@@ -13,19 +13,19 @@
         <item name="label" xsi:type="string" translate="true">General Information</item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
-<!--    <settings>-->
-<!--        <buttons>-->
-<!--            <button name="save" class="Magenest\Movie\Block\Adminhtml\MovieActor\SaveButton"/>-->
+    <settings>
+        <buttons>
+            <button name="save" class="Magenest\Movie\Block\Adminhtml\Button\SaveButton"/>
 <!--            <button name="back" class="Magenest\Movie\Block\Adminhtml\MovieActor\BackButton"/>-->
 <!--            <button name="delete" class="Magenest\Movie\Block\Adminhtml\MovieActor\DeleteButton"/>-->
 <!--            <button name="save_and_continue" class="Magenest\Movie\Block\Adminhtml\MovieActor\SaveAndContinueButton"/>-->
-<!--        </buttons>-->
-<!--        <namespace>movie_movieactors_form</namespace>-->
-<!--        <dataScope>data</dataScope>-->
-<!--        <deps>-->
-<!--            <dep>movie_movieactors_form.movie_movieactors_form_data_source</dep>-->
-<!--        </deps>-->
-<!--    </settings>-->
+        </buttons>
+        <namespace>movie_actor_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>movie_actor_form.movie_actor_form_data_source</dep>
+        </deps>
+    </settings>
     <dataSource name="movie_actor_form_data_source">
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
@@ -45,20 +45,20 @@
     <fieldset name="movie_and_actor_fieldset">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="label" xsi:type="string" translate="true"> Movie and Actors Fieldset</item>
+                <item name="label" xsi:type="string" translate="true"> Actors Fieldset</item>
             </item>
         </argument>
         <field name="actor_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Actors Id</item>
+                    <item name="label" xsi:type="string">Actor Id</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">number</item>
                     <item name="formElement" xsi:type="string">input</item>
                 </item>
             </argument>
         </field>
-        <field name="movie_id">
+        <field name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string">Name</item>
