@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">movie_director_form.movie_director_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="Magenest\Movie\Block\Adminhtml\Button\SaveButton"/>
+            <!--            <button name="back" class="Magenest\Movie\Block\Adminhtml\MovieActor\BackButton"/>-->
+            <!--            <button name="delete" class="Magenest\Movie\Block\Adminhtml\MovieActor\DeleteButton"/>-->
+            <!--            <button name="save_and_continue" class="Magenest\Movie\Block\Adminhtml\MovieActor\SaveAndContinueButton"/>-->
+        </buttons>
+        <namespace>movie_director_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>movie_director_form.movie_director_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="movie_actor_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="movie/director/save"/>
+        </settings>
+        <dataProvider class="Magenest\Movie\Model\Director\DataProvider" name="movie_director_form_data_source">
+            <settings>
+                <primaryFieldName>director_id</primaryFieldName>
+                <requestFieldName>name</requestFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="director_fieldset">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true"> Director Fieldset</item>
+            </item>
+        </argument>
+        <field name="director_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Director Id</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                </item>
+            </argument>
+        </field>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Name</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

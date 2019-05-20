@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/sy
-stem_file.xsd">
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <tab id="magenest" translate="label" sortOrder="500">
             <label>Magenest</label>
@@ -21,7 +20,8 @@ stem_file.xsd">
                 <field id="yes_no_field" translate="label" type="select"
                        sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <label>Yes/No_Field</label>
+                    <frontend_model>Magenest\Movie\Block\Color</frontend_model>
+                    <label>Yes/No_Field_abcd</label>
                 </field>
                 <field id="custom_select_field" translate="label" type="select"
                        sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">

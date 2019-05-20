@@ -48,8 +48,19 @@ $collectionMovie->getSelect()->join(
 * Add a grid with the data using ui component
 	- etc/di.xml
 	- view/adminhtml/ui_component/movie_actor_listing.xml
-	- view/adminhtml/layout/movie_acotr_index.xml
+	- view/adminhtml/layout/movie_actor_index.xml
 	- Controller/Adminhtml/Actor/Index.php
 	- Model/ResoureceModel/Actor.php
 	- Model/ResoureceModel/Actor/Collection.php
+
+* create button in ui component
+	- Block/Adminhtml/<name>/SaveButton.php
+	- view/adminhtml/ui_component/movie_actor_form.xml
+
+* ui commponent form
+	- Controller/Adminhtml/Director/NewDirector.php
+	- Model/Director/DataProvider.php
+	- view/adminhtml/layout/movie_director_newdirector.xml
+	- view/adminhtml/ui_component/movie_director_form.xml
+	
 
