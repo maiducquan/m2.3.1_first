@@ -9,12 +9,16 @@ use Magento\Backend\App\Action;
 class Save extends \Magento\Backend\App\Action
 {
     protected $_movieFactory;
+    protected $_update;
+
     public function __construct(
         Action\Context $context,
-        \Magenest\Movie\Model\MovieFactory $movieFactory
+        \Magenest\Movie\Model\MovieFactory $movieFactory,
+        \Magenest\Movie\Setup\UpdateDataRowTable $update
     ){
         parent::__construct($context);
         $this->_movieFactory = $movieFactory;
+        $this->_update = $update;
     }
 
     public function execute()
@@ -42,7 +46,10 @@ class Save extends \Magento\Backend\App\Action
 //        $modelMovie->addData($formData);
 
         $modelMovie->save();
+        $rows = $modelMovie->getCollection()->count();
+        $this->_update->updateRow('movie/moviepage/rows_magenest_movie', $rows);
         $this->messageManager->addSuccess(__('This Director has been saved.'));
+        return $this->_redirect('*/*');
 
 //        try{
 //            $modelDirector->save();

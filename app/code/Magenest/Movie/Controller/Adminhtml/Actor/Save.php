@@ -9,13 +9,16 @@ namespace Magenest\Movie\Controller\Adminhtml\Actor;
 
 class Save extends \Magento\Backend\App\Action{
     protected $_actorFactory;
+    protected $_update;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magenest\Movie\Model\ActorFactory $actorFactory
+        \Magenest\Movie\Model\ActorFactory $actorFactory,
+        \Magenest\Movie\Setup\UpdateDataRowTable $update
     ){
         parent::__construct($context);
         $this->_actorFactory = $actorFactory;
+        $this->_update = $update;
     }
 
     public function execute()
@@ -34,6 +37,8 @@ class Save extends \Magento\Backend\App\Action{
 
         try{
             $modelActor->save();
+            $rows = $modelActor->getCollection()->count();
+            $this->_update->updateRow('movie/moviepage/rows_magenest_actor', $rows);
             $this->messageManager->addSuccess(__('This Actor has been saved.'));
 
             if($this->getRequest()->getParam('back')){

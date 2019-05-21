@@ -6,6 +6,9 @@
             <moviepage>
                 <text_field>I’m a text field</text_field>
                 <yes_no_field>1</yes_no_field>
+                <color>#FFFFFF</color>
+                <rows_magenest_movie>0</rows_magenest_movie>
+                <rows_magenest_actor>0</rows_magenest_actor>
                 <custom_select_field>1</custom_select_field>
             </moviepage>
         </movie>

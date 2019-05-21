@@ -15,25 +15,24 @@ class Color extends Field
         Context $context,
         Registry $coreRegistry,
         array $data = []
-    ){
+    )
+    {
         $this->_coreRegistry = $coreRegistry;
         parent::__construct($context, $data);
     }
 
     protected function _getElementHtml(AbstractElement $element)
     {
-//        $html = $element->getElementHtml();
-//        $cpPath = $this->getViewFileUrl('Vendor_Module::js');
-//        if (!$this->_coreRegistry->registry('colorpicker_loaded')) {
-//            $html .= '<script type="text/javascript" src="' . $cpPath . '/' . 'jscolor.js"></script>';
-//            $this->_coreRegistry->registry('colorpicker_loaded', 1);
-//        }
-//        $html .= '<script type="text/javascript">
-//                var el = document.getElementById("' . $element->getHtmlId() . '");
-//                el.className = el.className + " jscolor{hash:true}";
-//            </script>';
-//
-//        return $html;
+        $html = $element->getElementHtml();
+        $cpPath = $this->getViewFileUrl('Magenest_Movie::js');
+        if (!$this->_coreRegistry->registry('colorpicker_loaded')) {
+            $html .= '<script type="text/javascript" src="' . $cpPath . '/' . 'jscolor.js"></script>';
+            $this->_coreRegistry->registry('colorpicker_loaded', 1);
+        }
+        $html .= '<script type="text/javascript">
+                var el = document.getElementById("' . $element->getHtmlId() . '");
+                el.className = el.className + " jscolor{hash:true}";
+            </script>';
+        return $html;
     }
-
 }

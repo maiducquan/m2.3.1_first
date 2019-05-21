@@ -20,13 +20,35 @@
                 <field id="yes_no_field" translate="label" type="select"
                        sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <frontend_model>Magenest\Movie\Block\Color</frontend_model>
-                    <label>Yes/No_Field_abcd</label>
+<!--                    <frontend_model>Magenest\Movie\Block\Color</frontend_model>-->
+                    <label><![CDATA[Yes/No_Field<span style="color: red">_abcd</span>]]></label>
                 </field>
                 <field id="custom_select_field" translate="label" type="select"
                        sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Custom Select Field</label>
                     <source_model>Magenest\Movie\Model\Config\Source\Movie</source_model>
+                </field>
+                <field id="color" translate="label" type="text"
+                       sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Color</label>
+                    <frontend_model>Magenest\Movie\Block\Color</frontend_model>
+                </field>
+                <field id="rows_magenest_movie" translate="label" type="text"
+                       sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Rows in table “magenest_movie”</label>
+                    <frontend_model>Magenest\Movie\Block\ReadOnly</frontend_model>
+                </field>
+                <field id="rows_magenest_actor" translate="label" type="text"
+                       sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Rows in table “magenest_actor”</label>
+                    <frontend_model>Magenest\Movie\Block\ReadOnly</frontend_model>
+                    <depends>
+                        <field id="custom_select_field">1</field>
+                    </depends>
+                </field>
+                <field id="button_field" translate="label" type="hidden"
+                       sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[<button onclick="window.location.href = window.location.href">Button Field</button>]]></label>
                 </field>
             </group>
         </section>
