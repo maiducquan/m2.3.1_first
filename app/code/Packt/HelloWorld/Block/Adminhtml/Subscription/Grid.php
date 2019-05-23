@@ -22,8 +22,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
         \Magento\Backend\Helper\Data $backendHelper,
         \Packt\HelloWorld\Model\ResourceModel\Subscription\Collection $subscriptionCollection,
         array $data = []
-    )
-    {
+    ){
         $this->_subscriptionCollection = $subscriptionCollection;
         parent::__construct($context, $backendHelper, $data);
         $this->setEmptyText(__('No Subscriptions Found'));
