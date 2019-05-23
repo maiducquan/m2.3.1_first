@@ -45,7 +45,13 @@ class Save extends \Magento\Backend\App\Action
 //        $formData = $this->getRequest()->getParams();
 //        $modelMovie->addData($formData);
 
+        $this->_eventManager->dispatch(
+            'save_magenest_movie',
+            ['movie' => $modelMovie]
+        );
+
         $modelMovie->save();
+
         $rows = $modelMovie->getCollection()->count();
         $this->_update->updateRow('movie/moviepage/rows_magenest_movie', $rows);
         $this->messageManager->addSuccess(__('This Director has been saved.'));
