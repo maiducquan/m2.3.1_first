@@ -1,0 +1,41 @@
+* Declaring a plugin
+	- di.xml
+	<config>
+    		<type name="{ObservedType}">
+      			<plugin name="{pluginName}" type="{PluginClassName}" sortOrder="1" disabled="false" />
+    		</type>
+	</config>
+	
+	- type name: a class or interface which the plugin observes
+	- plugin name: an arbitrary plugin name that identifies a plugin. Also used to merge the configurations for the plugin.
+	- plugin type: The name of a plugin’s class or its virtual type
+
+* Defining a plugin:
+	- Before methods:
+		+ Magento runs all methods ahead of the call to an observed method. 
+		+ These method must have the same name as the observed method with 'before' as prefix.
+
+	class ProductAttributesUpdater
+	{
+    		public function beforeSetName(\Magento\Catalog\Model\Product $subject, $name)
+    		{
+        		return ['(' . $name . ')'];
+    		}
+	}
+
+	- After methods:
+		+ Magento runs all after methods following the completion of the observed	
+
+	class ProductAttributesUpdater
+	{
+    		public function afterGetName(\Magento\Catalog\Model\Product $subject, $result)
+    		{
+        		return '|' . $result . '|';
+    		}
+	}
+		+ If an argument is optional in the observed method, then the after method should also declared is as optional
+
+	- Around methods:
+		+ is methods before and after
+		+ avoid using around method
+		+ if around method does not call the callable, it will prevent the execution of all the plugins next in the chain and the original method call.

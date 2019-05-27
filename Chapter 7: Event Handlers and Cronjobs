@@ -1,0 +1,58 @@
+* Understanding event types
+	- */
+	  *  @param \Psr\Log\LoggerInterface $logger
+	  */
+
+	\Psr\Log\LoggerInterface $logger
+	$this->_logger->debug()
+	--> show the text in log file
+	
+	- tail -f var/log/debug.log
+	--> what the text will be added to debug.log file
+
+	- logger interface have following functions:
+		+ debug(): write to var/log/debug.log
+		+ exception(): write to var/log/exception.log
+		all other function write to system.log
+		+ alert()
+		+ critical()
+		+ emergency()
+		+ error()
+		+ info()
+		+ log()
+		+ notice()
+		+ warning()
+
+* Creating your own event
+	- How to fire an event using the dispatch()
+	$this->_eventManager->dispatch('helloworld_register_visit');
+
+* Adding an event observer
+	- etc/events.xml
+	- Observer/RegisterVisitObserver.php
+	- php bin/magento c:f
+	- tail -f var/log/debug.log
+
+	- etc/frontend/events.xml
+	- Observer/CheckCartQtyObserver.php
+
+* Introducing cronjobs
+	- php bin/magento cron:run
+	--> run magento cronjob
+	- sudo crontab -e 
+		*/1 * * * * php /var/www/html/Magento/m2.3.1_first/bin/magento cron:run
+	--> run cronjob every minutes
+
+	- check cronjob in cron_schedule table
+
+* Creating and testing a new cronjob
+	- etc/crontab.xml
+	--> change groud id="packt"
+	- Moel/Cron.php
+	- etc/cron_groups.xml
+	--> test cron job
+	- php bin/magento cron:run --group="packt"
+	- Name of a cronjob is always written using lowercase and underscores
+	- Magento 2 has the following cron groups:
+		+ Default
+		+ index

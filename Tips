@@ -62,5 +62,15 @@ $collectionMovie->getSelect()->join(
 	- Model/Director/DataProvider.php
 	- view/adminhtml/layout/movie_director_newdirector.xml
 	- view/adminhtml/ui_component/movie_director_form.xml
+
+* Add text, css in xml 
+	<![CDATA[]]>
+
+* Change database of customer via customerID
+	- \Magento\Customer\Api\CustomerRepositoryInterface
+	- $this->_customerRepositoryInterface->getById($customerId)
+	- $this->_customerRepositoryInterface->save($customer)
 	
+* Reference contain or reference block
+	- write exactly the direct
 
