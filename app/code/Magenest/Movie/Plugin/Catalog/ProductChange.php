@@ -8,12 +8,18 @@
 
 namespace Magenest\Movie\Plugin\Catalog;
 
-use Magento\Catalog\Model\Product;
 
 class ProductChange
 {
-    public function beforeGet(\Magento\Catalog\Model\Product $product)
+    public function afterGetProductName()
     {
-        return '100';
+        return 'Test Configurable-Black';
+    }
+
+    public function afterGetImage($item, $result){
+        $result->setImageUrl('https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+        $result->setWidth(300);
+        $result->setHeight(300);
+        return $result;
     }
 }

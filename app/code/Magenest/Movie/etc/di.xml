@@ -1,5 +1,5 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Magento/Framework/ObjectManager/etc/config.xsd">
-    <type name="Magento\Catalog\Model\Product">
+    <type name="Magento\Checkout\Block\Cart\Item\Renderer">
         <plugin name="Magenest_Movie::productChange"
                 type="Magenest\Movie\Plugin\Catalog\ProductChange" sortOrder="1" />
     </type>
