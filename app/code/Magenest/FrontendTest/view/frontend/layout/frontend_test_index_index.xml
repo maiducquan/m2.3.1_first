@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/pa
+ge_configuration.xsd">
+    <head>
+        <title>Modal Test Page</title>
+        <script src="Magenest_FrontendTest::js/my_modal.js"></script>
+    </head>
+    <body>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="wishlist_sidebar" remove="true"/>
+        <referenceContainer name="content">
+            <block class="Magenest\FrontendTest\Block\Frontend\Button"
+                   name="buttonblock" template="Magenest_FrontendTest::button.phtml"/>
+        </referenceContainer>
+    </body>
+</page>
