@@ -81,9 +81,10 @@
                 </item>
             </argument>
         </column>
-        <column name="rating">
+        <column name="rating" class="Magenest\Movie\Ui\Component\Listing\Column\StarRating">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Rating</item>
                 </item>
             </argument>

@@ -1,0 +1,40 @@
+<div class="col-m-6">
+    <fieldset class="fieldset admin__fieldset " id="theme">
+        <div class="admin__field field" data-ui-id="theme-edit-tabstab-general-section-fieldset-element-form-field-theme-path">
+            <label class="label admin__field-label"><span>Numbers of module installed </span></label>
+            <div class="admin__field-control control">
+                <div class="control-value"><?=count($block->getCollection()->getData())?></div>
+            </div>
+        </div>
+        <div class="admin__field field" data-ui-id="theme-edit-tabstab-general-section-fieldset-element-form-field-theme-path">
+            <label class="label admin__field-label"><span>Numbers of module installed in Magento</span></label>
+            <div class="admin__field-control control">
+                <div class="control-value"><?=count($block->getCollection()->addFieldToFilter('module',array('like' => 'Magento%'))->getData())?></div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div class="col-m-6">
+    <table class="admin__table-secondary">
+        <tr>
+            <th><?php echo __('Numbers of Customers') ?></th>
+            <td><?=$block->countCustomer()?></td>
+        </tr>
+        <tr>
+            <th><?php echo __('Numbers of Products') ?></th>
+            <td><?=$block->countProducts()?></td>
+        </tr>
+        <tr>
+            <th><?php echo __('Numbers of Orders') ?></th>
+            <td><?=$block->countOrders()?></td>
+        </tr>
+        <tr>
+            <th><?php echo __('Numbers of Invoices') ?></th>
+            <td><?=$block->countInvoices()?></td>
+        </tr>
+        <tr>
+            <th><?php echo __('Numbers of Creditmemos') ?></th>
+            <td><?=$block->countCreditmemo()?></td>
+        </tr>
+    </table>
+</div>

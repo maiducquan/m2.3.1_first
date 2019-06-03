@@ -1,11 +1,16 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <update handle="styles"/>
     <head>
-        <link src="Magenest_Movie::css/star.css"></link>
+
     </head>
     <body>
+        <referenceContainer name="page.main.actions">
+
+        </referenceContainer>
         <referenceContainer name="content">
-            <uiComponent name="movie_movie_listing"/>
+            <block class="Magenest\Movie\Block\Adminhtml\Information\Report"
+                   name="adminhtml.movie.report.component"
+                   template="Magenest_Movie::component/index.phtml"/>
         </referenceContainer>
     </body>
 </page>

@@ -51,7 +51,7 @@
         <field name="movie_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Director Id</item>
+                    <item name="label" xsi:type="string">Movie Id</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">number</item>
                     <item name="formElement" xsi:type="string">input</item>
@@ -62,6 +62,10 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string">Name</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="required" xsi:type="boolean">true</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
@@ -82,21 +86,34 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string">Rating</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-number" xsi:type="boolean">true</item>
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">number</item>
                     <item name="formElement" xsi:type="string">input</item>
                 </item>
             </argument>
         </field>
-        <field name="director_id">
+        <field name="director_id" formElement="select">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Director ID</item>
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="dataType" xsi:type="string">number</item>
-                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">movie_fieldset</item>
                 </item>
             </argument>
+            <settings>
+                <label>Director ID</label>
+                <dataType>text</dataType>
+                <visible>true</visible>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magenest\Movie\Ui\Component\Form\Movie"/>
+                    </settings>
+                </select>
+            </formElements>
         </field>
     </fieldset>
 </form>

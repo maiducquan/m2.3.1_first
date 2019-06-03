@@ -15,6 +15,6 @@ class EditMagenestMovie implements ObserverInterface
 
     public function execute(Observer $observer)
     {
-        $observer->getMovie()->setRating(0);
+//        $observer->getMovie()->setRating(0);
     }
 }

@@ -2,39 +2,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add
-                id="Magenest_Movie::magenest_movie"
-                title="Magenest Movie"
-                module="Magenest_Movie"
-                sortOrder="50"
-                resource="Magenest_Movie::magenest_movie"
-        />
-        <add
-                id="Magenest_Movie::movie"
-                title="Movie"
-                module="Magenest_Movie"
-                sortOrder="10"
-                parent="Magenest_Movie::magenest_movie"
-                action="movie/movie/"
-                resource="Magenest_Movie::movie"
-        />
-        <add
-                id="Magenest_Movie::director"
-                title="Director"
-                module="Magenest_Movie"
-                sortOrder="20"
-                parent="Magenest_Movie::magenest_movie"
-                action="movie/director/"
-                resource="Magenest_Movie::director"
-        />
-        <add
-                id="Magenest_Movie::actor"
-                title="Actor"
-                module="Magenest_Movie"
-                sortOrder="30"
-                parent="Magenest_Movie::magenest_movie"
-                action="movie/actor/"
-                resource="Magenest_Movie::actor"
-        />
+        <add id="Magenest_Movie::magenest_movie" title="Magenest Movie" module="Magenest_Movie" sortOrder="50" resource="Magenest_Movie::magenest_movie"/>
+        <add id="Magenest_Movie::magenest_movie_media" title="Media" translate="title" module="Magenest_Movie" sortOrder="10" parent="Magenest_Movie::magenest_movie" resource="Magenest_Movie::magenest_movie_media"/>
+        <add id="Magenest_Movie::magenest_movie_media_movie" title="Movie" module="Magenest_Movie" sortOrder="10" parent="Magenest_Movie::magenest_movie_media" action="movie/movie/" resource="Magenest_Movie::movie"/>
+        <add id="Magenest_Movie::magenest_movie_media_director" title="Director" module="Magenest_Movie" sortOrder="10" parent="Magenest_Movie::magenest_movie_media" action="movie/director/" resource="Magenest_Movie::director"/>
+        <add id="Magenest_Movie::magenest_movie_media_actor" title="Actor" module="Magenest_Movie" sortOrder="10" parent="Magenest_Movie::magenest_movie_media" action="movie/actor/" resource="Magenest_Movie::actor"/>
+        <add id="Magenest_Movie::magenest_movie_information" title="Information" translate="title" module="Magenest_Movie" sortOrder="20" parent="Magenest_Movie::magenest_movie" resource="Magenest_Movie::magenest_movie_information"/>
+        <add id="Magenest_Movie::magenest_movie_informationreport" title="Request Report" module="Magenest_Movie" sortOrder="10" parent="Magenest_Movie::magenest_movie_information" action="movie/report/" resource="Magenest_Movie::report"/>
     </menu>
 </config>
