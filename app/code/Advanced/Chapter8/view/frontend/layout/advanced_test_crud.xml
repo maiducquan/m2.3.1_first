@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Chapter 8</title>
+    </head>
+    <body>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="wishlist_sidebar" remove="true"/>
+        <!-- -->
+        <referenceBlock name="content">
+<!--            <block class="Magento\Framework\View\Element\Text\ListText"-->
+<!--                   name="example_2">-->
+<!--                <block class="Magento\Framework\View\Element\Text" name="example_2a">-->
+<!--                    <action method="setText">-->
+<!--                        <argument name="text" xsi:type="string"><![CDATA[<p>Text_2A</p>]]></argument>-->
+<!--                    </action>-->
+<!--                </block>-->
+<!--                <block class="Magento\Framework\View\Element\Text" name="example_2b">-->
+<!--                    <action method="setText">-->
+<!--                        <argument name="text" xsi:type="string"><![CDATA[<p>Text_2B</p>]]></argument>-->
+<!--                    </action>-->
+<!--                </block>-->
+<!--            </block>-->
+
+<!--            <block class="Magento\Framework\View\Element\Messages" name="example_3">-->
+<!--                <action method="addSuccess">-->
+<!--                    <argument name="text" xsi:type="string"> <![CDATA[<p>Text_3A:Success</p>]]></argument>-->
+<!--                </action>-->
+<!--                <action method="addNotice">-->
+<!--                    <argument name="text" xsi:type="string"> <![CDATA[<p>Text_3B:Notice</p>]]></argument>-->
+<!--                </action>-->
+<!--                <action method="addWarning">-->
+<!--                    <argument name="text" xsi:type="string"> <![CDATA[<p>Text_3C:Warning</p>]]></argument>-->
+<!--                </action>-->
+<!--                <action method="addError">-->
+<!--                    <argument name="text" xsi:type="string"> <![CDATA[<p>Text_3D:Error</p>]]></argument>-->
+<!--                </action>-->
+<!--            </block>-->
+
+<!--            <block class="Magento\Framework\View\Element\Template"-->
+<!--                   name="example_4" template="Advanced_Chapter8::test/template.phtml"/>-->
+            <block class="Advanced\Chapter8\Block\Hello" name="test" template="test/hello.phtml"/>
+        </referenceBlock>
+    </body>
+</page>
