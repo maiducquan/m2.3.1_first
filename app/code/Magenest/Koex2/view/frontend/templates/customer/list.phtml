@@ -1,0 +1,38 @@
+<div id="customer-page">     
+    <div id="block-customer-list" data-bind="scope:'customer-list'" class="block">
+              <!-- ko template: getTemplate() --><!-- /ko -->
+        <script type="text/x-magento-init">
+            {
+                "*": {
+                        "Magento_Ui/js/core/app": {
+                            "components": {
+                                "customer-list": {
+                                    "component": "Magenest_Koex2/js/view/customer/list"
+                                }
+                            }
+                        }
+                }
+            }
+        </script>
+        <table>
+            <thead>
+            <tr>          
+                <th>ID</th>          
+                <th>Email</th>          
+                <th>Name</th>         
+                <th>Gender</th>         
+                <th>Created At</th>     
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: getListCustomers()">    
+            <tr>          
+                <td data-bind="text: entity_id"></td>          
+                <td data-bind="text: email"></td>         
+                <td data-bind="text: firstname  + ' ' + lastname"></td>         
+                <td data-bind="text: gender == 1 ? 'male' : gender == 2 ? 'famale' : 'unknow' "></td>         
+                <td data-bind="text: created_at"></td>     
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
